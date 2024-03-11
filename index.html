@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Slider </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <img src="https://picsum.photos/id/55/1000/500" class="slide" alt="">
+    <img src="https://picsum.photos/id/22/1000/500" class="slide" alt="">
+    <img src="https://picsum.photos/id/33/1000/500" class="slide" alt="">
+    <img src="https://picsum.photos/id/44/1000/500" class="slide" alt="">
+  </main>
+
+  <div class="nav">
+    <button onclick="goPrev()">Prev</button>
+    <button onclick="goNext()">Next</button>
+  </div>
+  
+
+
+  <script>
+
+    const slides = document.querySelectorAll('.slide');
+    let counter = 0;
+
+    slides.forEach((slide,index)=>{
+slide.style.top = `${index * 100}%`
+    })
+
+    const goPrev = ()=>{
+      counter--
+      slideImage()
+    }
+
+    const goNext = ()=>{
+      counter++
+      slideImage()
+    }
+
+    const slideImage = ()=>{
+      slides.forEach(
+        (slide)=>{
+          slide.style.transform = `translateY(-${counter * 100}%)`
+        }
+      )
+    }
+  </script>
+</body>
+</html>
